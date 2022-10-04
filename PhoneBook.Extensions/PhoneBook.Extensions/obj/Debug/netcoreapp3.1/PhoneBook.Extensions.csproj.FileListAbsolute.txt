@@ -1,0 +1,10 @@
+D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.Extensions\bin\Debug\netcoreapp3.1\PhoneBook.Extensions.deps.json
+D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.Extensions\bin\Debug\netcoreapp3.1\PhoneBook.Extensions.dll
+D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.Extensions\bin\Debug\netcoreapp3.1\PhoneBook.Extensions.pdb
+D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.Extensions\obj\Debug\netcoreapp3.1\PhoneBook.Extensions.csproj.AssemblyReference.cache
+D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.Extensions\obj\Debug\netcoreapp3.1\PhoneBook.Extensions.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.Extensions\obj\Debug\netcoreapp3.1\PhoneBook.Extensions.AssemblyInfoInputs.cache
+D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.Extensions\obj\Debug\netcoreapp3.1\PhoneBook.Extensions.AssemblyInfo.cs
+D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.Extensions\obj\Debug\netcoreapp3.1\PhoneBook.Extensions.csproj.CoreCompileInputs.cache
+D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.Extensions\obj\Debug\netcoreapp3.1\PhoneBook.Extensions.dll
+D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.Extensions\obj\Debug\netcoreapp3.1\PhoneBook.Extensions.pdb
