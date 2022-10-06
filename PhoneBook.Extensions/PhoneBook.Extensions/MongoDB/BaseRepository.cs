@@ -26,6 +26,10 @@ namespace PhoneBook.Extensions.MongoDB
         Task<List<T>> GetListByFilterDefinitionAsync(FilterDefinition<T> filter);
 
         IMongoCollection<T> Collection { get; set; }
+
+        bool IsExist(Expression<Func<T, bool>> predicate);
+        Task<bool> IsExistAsync(Expression<Func<T, bool>> predicate);
+        Task<bool> UpdateAsync(string RowId, T item);
     }
 
     public class BaseRepository<T> : IBaseRepository<T> where T : BaseCollection, new()
@@ -50,7 +54,7 @@ namespace PhoneBook.Extensions.MongoDB
                 throw ex;
             }
         }
-        
+
         public List<T> GetList() => collection.Find(x => true).ToList();
 
         public async Task<List<T>> GetListAsync() => await collection.Find(x => true).ToListAsync();
@@ -78,5 +82,24 @@ namespace PhoneBook.Extensions.MongoDB
         public List<T> GetListByFilterDefinition(FilterDefinition<T> filter) => collection.Find(filter).ToList();
 
         public async Task<List<T>> GetListByFilterDefinitionAsync(FilterDefinition<T> filter) => await collection.Find(filter).ToListAsync();
+
+        public bool IsExist(Expression<Func<T, bool>> predicate) => collection.Find(predicate).Any();
+
+        public async Task<bool> IsExistAsync(Expression<Func<T, bool>> predicate) => await collection.Find(predicate).AnyAsync();
+
+
+        public async Task<bool> UpdateAsync(string RowId, T item)
+        {
+            try
+            {
+                var objId = new ObjectId(RowId);
+                await collection.ReplaceOneAsync(x => x.Id == objId, item);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
