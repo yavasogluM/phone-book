@@ -6,6 +6,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using PhoneBook.Contact.Services;
+using PhoneBook.Extensions.MongoDB;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,8 +29,13 @@ namespace PhoneBook.Contact
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddScoped<IContactService, ContactService>();
             services.AddSwaggerGen();
+
+            services.Configure<MongoDBConnectionSetting>(Configuration.GetSection("MongoDBConnectionSetting"));
+
+            services.AddSingleton<MongoDBConnectionSetting>(sp => sp.GetRequiredService<IOptions<MongoDBConnectionSetting>>().Value);
+            services.AddScoped<IContactRepository, ContactRepository>();
+            services.AddScoped<IContactService, ContactService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

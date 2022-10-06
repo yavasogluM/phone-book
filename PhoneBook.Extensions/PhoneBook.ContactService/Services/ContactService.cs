@@ -1,7 +1,9 @@
 ﻿using PhoneBook.Contact.Models;
+using PhoneBook.Contact.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace PhoneBook.Contact
 {
@@ -16,47 +18,42 @@ namespace PhoneBook.Contact
     }
     public class ContactService : IContactService
     {
-        private List<ContactModel> GetDummyContacts()
+        private Extensions.MongoDB.MongoDBConnectionSetting _mongoDBConnectionSetting;
+        private IContactRepository _contactRepository;
+        public ContactService(Extensions.MongoDB.MongoDBConnectionSetting mongoDBConnectionSetting,
+            IContactRepository contactRepository)
         {
-            return new List<ContactModel>
-                {
-                    new ContactModel{ UUID = new Guid("47abddd9-78f8-41f7-99ce-f9211f45473a"), Ad = "ad1", Soyad = "soyad1", ContactInfo = new ContactInfoModel{
-                     InfoDetail = "test@test.com", InfoType = ContactInfoType.Email
-                    } },
-                    new ContactModel{ UUID = new Guid("5d170477-aa91-46c6-a139-4a5a47ac632b"), Ad = "ad2", Soyad = "soyad2", ContactInfo = new ContactInfoModel{
-                     InfoDetail = "ISTANBUL", InfoType = ContactInfoType.Location
-                    } },
-                };
+            _mongoDBConnectionSetting = mongoDBConnectionSetting;
+            _contactRepository = contactRepository;
         }
+
+        private List<ContactModel> GetContacts() => _contactRepository.GetList();
 
         public List<ContactModel> AddContact(ContactModel model)
         {
-            var _contacts = GetDummyContacts();
-            _contacts.Add(model);
-            return _contacts;
+            _contactRepository.InsertItem(model);
+            return GetAll();
         }
 
         public ContactModel Get(Guid UUID)
         {
-            return GetDummyContacts().FirstOrDefault(x => x.UUID == UUID);
+            return _contactRepository.GetByFilter(x => x.UUID == UUID);
         }
 
-        public List<ContactModel> GetAll()
-        {
-            return GetDummyContacts();
-        }
+        public List<ContactModel> GetAll() => GetContacts();
 
-        public List<ContactModel> UpdateContact(ContactModel model)
+
+        public async Task<List<ContactModel>> UpdateContact(ContactModel model)
         {
-            var contacts = GetDummyContacts();
-            var contact = contacts.FirstOrDefault(x => x.UUID == model.UUID);
+            var contact = _contactRepository.GetByFilter(x => x.UUID == model.UUID);
             contact = model;
-            return contacts;
+            await _contactRepository.UpdateAsync(contact.RowId, contact);
+            return GetContacts();
         }
 
         public List<ContactModel> DeleteContact(Guid UUID)
         {
-            var contacts = GetDummyContacts();
+            var contacts = GetContacts();
             var contact = contacts.FirstOrDefault(x => x.UUID == UUID);
             contacts.Remove(contact);
             return contacts;
@@ -64,9 +61,9 @@ namespace PhoneBook.Contact
 
         public List<ContactModel> SpecificSearch(ContactSearchModel request)
         {
-            var contacts = GetDummyContacts();
+            var contacts = GetContacts();
 
-            var result = contacts.Where(x => x.ContactInfo.InfoType == request.ContactInfoType && x.ContactInfo.InfoDetail.Contains(request.Detail)).ToList();
+            var result = _contactRepository.GetListByFilter(x => x.ContactInfo.InfoType == request.ContactInfoType && x.ContactInfo.InfoDetail.Contains(request.Detail)).ToList();
 
             return result;
         }
