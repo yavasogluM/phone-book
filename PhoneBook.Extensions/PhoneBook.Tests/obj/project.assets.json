@@ -1776,6 +1776,20 @@
           "build/netcoreapp2.1/xunit.runner.visualstudio.props": {}
         }
       },
+      "PhoneBook.ContactCommon/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "MongoDB.Driver": "2.17.1",
+          "PhoneBook.Extensions": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/PhoneBook.ContactCommon.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PhoneBook.ContactCommon.dll": {}
+        }
+      },
       "PhoneBook.Extensions/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
@@ -6241,6 +6255,11 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
+    "PhoneBook.ContactCommon/1.0.0": {
+      "type": "project",
+      "path": "../PhoneBook.ContactCommon/PhoneBook.ContactCommon.csproj",
+      "msbuildProject": "../PhoneBook.ContactCommon/PhoneBook.ContactCommon.csproj"
+    },
     "PhoneBook.Extensions/1.0.0": {
       "type": "project",
       "path": "../PhoneBook.Extensions/PhoneBook.Extensions.csproj",
@@ -6251,6 +6270,7 @@
     ".NETCoreApp,Version=v3.1": [
       "Microsoft.NET.Test.Sdk >= 16.11.0",
       "MongoDB.Driver >= 2.17.1",
+      "PhoneBook.ContactCommon >= 1.0.0",
       "PhoneBook.Extensions >= 1.0.0",
       "coverlet.collector >= 3.1.0",
       "xunit >= 2.4.1",
@@ -6284,6 +6304,9 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
+            "D:\\Projects\\PhoneBook\\PhoneBook.Extensions\\PhoneBook.ContactCommon\\PhoneBook.ContactCommon.csproj": {
+              "projectPath": "D:\\Projects\\PhoneBook\\PhoneBook.Extensions\\PhoneBook.ContactCommon\\PhoneBook.ContactCommon.csproj"
+            },
             "D:\\Projects\\PhoneBook\\PhoneBook.Extensions\\PhoneBook.Extensions\\PhoneBook.Extensions.csproj": {
               "projectPath": "D:\\Projects\\PhoneBook\\PhoneBook.Extensions\\PhoneBook.Extensions\\PhoneBook.Extensions.csproj"
             }

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PhoneBook.Contact.Models;
+using PhoneBook.ContactCommon.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -33,11 +34,17 @@ namespace PhoneBook.Contact.Controllers
         [HttpPut(template: "update-contact")]
         public async Task<List<ContactModel>> UpdateContact([FromBody] ContactModel request) => await _contactService.UpdateContact(request);
 
-        [HttpDelete(template:"delete-contact/{uuid}")]
+        [HttpDelete(template: "delete-contact/{uuid}")]
         public async Task<List<ContactModel>> DeleteContact([FromRoute] string uuid) => await _contactService.DeleteContact(new Guid(uuid));
 
-        [HttpGet(template:"specific-search")]
+        [HttpGet(template: "specific-search")]
         public async Task<List<ContactModel>> SpecificSearch([FromBody] ContactSearchModel request) => await _contactService.SpecificSearch(request);
+
+        [HttpPost(template: "add-contact-info")]
+        public async Task<List<ContactModel>> AddContactInfo([FromBody] ContactInfoRequestModel request) => await _contactService.AddContactInfo(request.UUID, request.ContactInfo);
+
+        [HttpDelete("delete-contact-info")]
+        public async Task<List<ContactModel>> DeleteContactInfo([FromBody] ContactInfoRequestModel request) => await _contactService.DeleteContactInfo(request.UUID, request.ContactInfo);
 
     }
 }

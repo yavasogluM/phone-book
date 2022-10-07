@@ -1,4 +1,5 @@
 ﻿using PhoneBook.Contact.Models;
+using PhoneBook.ContactCommon.Models;
 using PhoneBook.Extensions.MongoDB;
 
 namespace PhoneBook.Contact.Services

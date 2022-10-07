@@ -1,8 +1,10 @@
-﻿namespace PhoneBook.Contact.Models
+﻿using PhoneBook.ContactCommon.Models;
+
+namespace PhoneBook.Contact.Models
 {
     public class ContactSearchModel
     {
-        public Contact.Models.ContactInfoType ContactInfoType { get; set; }
+        public ContactInfoType ContactInfoType { get; set; }
         public string Detail { get; set; }
     }
 }

@@ -123,3 +123,5 @@ D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.Tests\bin\Debug\netcoreapp3
 D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.Tests\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Security.AccessControl.dll
 D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.Tests\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
 D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.Tests\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
+D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.Tests\bin\Debug\netcoreapp3.1\PhoneBook.ContactCommon.dll
+D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.Tests\bin\Debug\netcoreapp3.1\PhoneBook.ContactCommon.pdb

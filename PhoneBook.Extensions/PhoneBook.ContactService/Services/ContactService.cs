@@ -1,5 +1,6 @@
 ﻿using PhoneBook.Contact.Models;
 using PhoneBook.Contact.Services;
+using PhoneBook.ContactCommon.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,8 @@ namespace PhoneBook.Contact
         Task<List<ContactModel>> UpdateContact(ContactModel model);
         Task<List<ContactModel>> DeleteContact(Guid UUID);
         Task<List<ContactModel>> SpecificSearch(ContactSearchModel request);
+        Task<List<ContactModel>> AddContactInfo(Guid uuid, ContactInfoModel contactInfo);
+        Task<List<ContactModel>> DeleteContactInfo(Guid uuid, ContactInfoModel contactInfo);
     }
     public class ContactService : IContactService
     {
@@ -42,7 +45,9 @@ namespace PhoneBook.Contact
         public async Task<List<ContactModel>> UpdateContact(ContactModel model)
         {
             var contact = _contactRepository.GetByFilter(x => x.UUID == model.UUID);
+            var _id = contact.Id;
             contact = model;
+            contact.Id = _id;
             await _contactRepository.UpdateAsync(contact.RowId, contact);
             return await GetContacts();
         }
@@ -53,6 +58,37 @@ namespace PhoneBook.Contact
             return await GetContacts();
         }
 
-        public async Task<List<ContactModel>> SpecificSearch(ContactSearchModel request) => await _contactRepository.GetListByFilterAsync(x => x.ContactInfo.InfoType == request.ContactInfoType && x.ContactInfo.InfoDetail.Contains(request.Detail));
+        public async Task<List<ContactModel>> SpecificSearch(ContactSearchModel request)
+        {
+            var list = await _contactRepository.GetListByFilterAsync(x => x.ContactInfos.Any(y => y.InfoType == request.ContactInfoType && y.InfoDetail.Contains(request.Detail)));
+            return list;
+        }
+
+        public async Task<List<ContactModel>> AddContactInfo(Guid uuid, ContactInfoModel contactInfo)
+        {
+            var contact = _contactRepository.GetByFilter(x => x.UUID == uuid);
+            if (contact == null)
+                throw new Exception($"There is no contact with Id:{uuid}"); //Example exception 
+
+            if (contact.ContactInfos == null)
+                contact.ContactInfos = new List<ContactInfoModel>();
+            contact.ContactInfos.Add(contactInfo);
+            await _contactRepository.UpdateAsync(contact.RowId, contact);
+            return await GetContacts();
+        }
+
+        public async Task<List<ContactModel>> DeleteContactInfo(Guid uuid, ContactInfoModel contactInfo)
+        {
+            var contact = await _contactRepository.GetAsync(x => x.UUID == uuid);
+            if (contact == null)
+                throw new Exception($"There is no contact with Id:{uuid}"); //Example exception 
+
+            var selectedContactInfo = contact.ContactInfos.FirstOrDefault(x => x.InfoType == contactInfo.InfoType && x.InfoDetail == contactInfo.InfoDetail);
+            if (selectedContactInfo != null)
+                contact.ContactInfos.Remove(selectedContactInfo);
+
+            await _contactRepository.UpdateAsync(contact.RowId, contact);
+            return await GetContacts();
+        }
     }
 }

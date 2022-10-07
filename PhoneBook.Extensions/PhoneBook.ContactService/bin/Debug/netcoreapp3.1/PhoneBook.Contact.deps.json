@@ -32,6 +32,7 @@
       "PhoneBook.Contact/1.0.0": {
         "dependencies": {
           "MongoDB.Driver": "2.17.1",
+          "PhoneBook.ContactCommon": "1.0.0",
           "PhoneBook.Extensions": "1.0.0",
           "Swashbuckle.AspNetCore": "6.4.0",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
@@ -610,6 +611,18 @@
         },
         "compile": {
           "ref/netcoreapp3.0/System.Security.Principal.Windows.dll": {}
+        }
+      },
+      "PhoneBook.ContactCommon/1.0.0": {
+        "dependencies": {
+          "MongoDB.Driver": "2.17.1",
+          "PhoneBook.Extensions": "1.0.0"
+        },
+        "runtime": {
+          "PhoneBook.ContactCommon.dll": {}
+        },
+        "compile": {
+          "PhoneBook.ContactCommon.dll": {}
         }
       },
       "PhoneBook.Extensions/1.0.0": {
@@ -2432,6 +2445,11 @@
       "sha512": "sha512-t0MGLukB5WAVU9bO3MGzvlGnyJPgUlcwerXn1kzBRjwLKixT96XV0Uza41W49gVd8zEMFu9vQEFlv0IOrytICA==",
       "path": "system.security.principal.windows/5.0.0",
       "hashPath": "system.security.principal.windows.5.0.0.nupkg.sha512"
+    },
+    "PhoneBook.ContactCommon/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "PhoneBook.Extensions/1.0.0": {
       "type": "project",

@@ -50,3 +50,5 @@ D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.ContactService\bin\Debug\ne
 D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.ContactService\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
 D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.ContactService\bin\Debug\netcoreapp3.1\PhoneBook.Extensions.dll
 D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.ContactService\bin\Debug\netcoreapp3.1\PhoneBook.Extensions.pdb
+D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.ContactService\bin\Debug\netcoreapp3.1\PhoneBook.ContactCommon.dll
+D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.ContactService\bin\Debug\netcoreapp3.1\PhoneBook.ContactCommon.pdb
