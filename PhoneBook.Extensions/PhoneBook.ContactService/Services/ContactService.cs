@@ -9,12 +9,12 @@ namespace PhoneBook.Contact
 {
     public interface IContactService
     {
-        List<ContactModel> GetAll();
-        ContactModel Get(Guid UUID);
-        List<ContactModel> AddContact(ContactModel model);
-        List<ContactModel> UpdateContact(ContactModel model);
-        List<ContactModel> DeleteContact(Guid UUID);
-        List<ContactModel> SpecificSearch(ContactSearchModel request);
+        Task<List<ContactModel>> GetAll();
+        Task<ContactModel> Get(Guid UUID);
+        Task<List<ContactModel>> AddContact(ContactModel model);
+        Task<List<ContactModel>> UpdateContact(ContactModel model);
+        Task<List<ContactModel>> DeleteContact(Guid UUID);
+        Task<List<ContactModel>> SpecificSearch(ContactSearchModel request);
     }
     public class ContactService : IContactService
     {
@@ -27,45 +27,32 @@ namespace PhoneBook.Contact
             _contactRepository = contactRepository;
         }
 
-        private List<ContactModel> GetContacts() => _contactRepository.GetList();
+        private async Task<List<ContactModel>> GetContacts() => await _contactRepository.GetListAsync();
 
-        public List<ContactModel> AddContact(ContactModel model)
+        public async Task<List<ContactModel>> AddContact(ContactModel model)
         {
-            _contactRepository.InsertItem(model);
-            return GetAll();
+            await _contactRepository.InsertItemAsync(model);
+            return await GetContacts();
         }
 
-        public ContactModel Get(Guid UUID)
-        {
-            return _contactRepository.GetByFilter(x => x.UUID == UUID);
-        }
+        public async Task<ContactModel> Get(Guid UUID) => await _contactRepository.GetAsync(x => x.UUID == UUID);
 
-        public List<ContactModel> GetAll() => GetContacts();
-
+        public async Task<List<ContactModel>> GetAll() => await GetContacts();
 
         public async Task<List<ContactModel>> UpdateContact(ContactModel model)
         {
             var contact = _contactRepository.GetByFilter(x => x.UUID == model.UUID);
             contact = model;
             await _contactRepository.UpdateAsync(contact.RowId, contact);
-            return GetContacts();
+            return await GetContacts();
         }
 
-        public List<ContactModel> DeleteContact(Guid UUID)
+        public async Task<List<ContactModel>> DeleteContact(Guid UUID)
         {
-            var contacts = GetContacts();
-            var contact = contacts.FirstOrDefault(x => x.UUID == UUID);
-            contacts.Remove(contact);
-            return contacts;
+            await _contactRepository.DeleteItemAsync(x => x.UUID == UUID);
+            return await GetContacts();
         }
 
-        public List<ContactModel> SpecificSearch(ContactSearchModel request)
-        {
-            var contacts = GetContacts();
-
-            var result = _contactRepository.GetListByFilter(x => x.ContactInfo.InfoType == request.ContactInfoType && x.ContactInfo.InfoDetail.Contains(request.Detail)).ToList();
-
-            return result;
-        }
+        public async Task<List<ContactModel>> SpecificSearch(ContactSearchModel request) => await _contactRepository.GetListByFilterAsync(x => x.ContactInfo.InfoType == request.ContactInfoType && x.ContactInfo.InfoDetail.Contains(request.Detail));
     }
 }

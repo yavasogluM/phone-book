@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using PhoneBook.Contact.Models;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace PhoneBook.Contact.Controllers
 {
@@ -21,22 +22,22 @@ namespace PhoneBook.Contact.Controllers
         }
 
         [HttpGet(template: "all")]
-        public List<ContactModel> Get() => _contactService.GetAll();
+        public async Task<List<ContactModel>> Get() => await _contactService.GetAll();
 
         [HttpGet(template: "get/{uuid}")]
-        public ContactModel Get([FromRoute] string uuid) => _contactService.Get(new Guid(uuid));
+        public async Task<ContactModel> Get([FromRoute] string uuid) => await _contactService.Get(new Guid(uuid));
 
         [HttpPost(template: "add-contact")]
-        public List<ContactModel> AddContact([FromBody] ContactModel request) => _contactService.AddContact(request);
+        public async Task<List<ContactModel>> AddContact([FromBody] ContactModel request) => await _contactService.AddContact(request);
 
         [HttpPut(template: "update-contact")]
-        public List<ContactModel> UpdateContact([FromBody] ContactModel request) => _contactService.UpdateContact(request);
+        public async Task<List<ContactModel>> UpdateContact([FromBody] ContactModel request) => await _contactService.UpdateContact(request);
 
         [HttpDelete(template:"delete-contact/{uuid}")]
-        public List<ContactModel> DeleteContact([FromRoute] string uuid) => _contactService.DeleteContact(new Guid(uuid));
+        public async Task<List<ContactModel>> DeleteContact([FromRoute] string uuid) => await _contactService.DeleteContact(new Guid(uuid));
 
         [HttpGet(template:"specific-search")]
-        public List<ContactModel> SpecificSearch([FromBody] ContactSearchModel request) => _contactService.SpecificSearch(request);
+        public async Task<List<ContactModel>> SpecificSearch([FromBody] ContactSearchModel request) => await _contactService.SpecificSearch(request);
 
     }
 }
