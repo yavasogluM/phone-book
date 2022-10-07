@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PhoneBook.ContactCommon\PhoneBook.ContactCommon.csproj" />
     <ProjectReference Include="..\PhoneBook.Extensions\PhoneBook.Extensions.csproj" />
   </ItemGroup>
 

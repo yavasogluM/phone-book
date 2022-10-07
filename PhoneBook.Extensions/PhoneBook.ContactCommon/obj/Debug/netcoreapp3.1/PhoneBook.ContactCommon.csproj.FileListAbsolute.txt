@@ -1,0 +1,13 @@
+D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.ContactCommon\bin\Debug\netcoreapp3.1\PhoneBook.ContactCommon.deps.json
+D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.ContactCommon\bin\Debug\netcoreapp3.1\PhoneBook.ContactCommon.dll
+D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.ContactCommon\bin\Debug\netcoreapp3.1\PhoneBook.ContactCommon.pdb
+D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.ContactCommon\bin\Debug\netcoreapp3.1\PhoneBook.Extensions.dll
+D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.ContactCommon\bin\Debug\netcoreapp3.1\PhoneBook.Extensions.pdb
+D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.ContactCommon\obj\Debug\netcoreapp3.1\PhoneBook.ContactCommon.csproj.AssemblyReference.cache
+D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.ContactCommon\obj\Debug\netcoreapp3.1\PhoneBook.ContactCommon.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.ContactCommon\obj\Debug\netcoreapp3.1\PhoneBook.ContactCommon.AssemblyInfoInputs.cache
+D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.ContactCommon\obj\Debug\netcoreapp3.1\PhoneBook.ContactCommon.AssemblyInfo.cs
+D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.ContactCommon\obj\Debug\netcoreapp3.1\PhoneBook.ContactCommon.csproj.CoreCompileInputs.cache
+D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.ContactCommon\obj\Debug\netcoreapp3.1\PhoneBook.ContactCommon.csproj.CopyComplete
+D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.ContactCommon\obj\Debug\netcoreapp3.1\PhoneBook.ContactCommon.dll
+D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.ContactCommon\obj\Debug\netcoreapp3.1\PhoneBook.ContactCommon.pdb
