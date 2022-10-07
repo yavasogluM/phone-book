@@ -6,6 +6,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using PhoneBook.Extensions.MongoDB;
+using PhoneBook.ReportCommon.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +30,11 @@ namespace PhoneBook.Report
         {
             services.AddControllers();
             services.AddSwaggerGen();
+
+            services.Configure<MongoDBConnectionSetting>(Configuration.GetSection("MongoDBConnectionSetting"));
+            services.AddSingleton(sp => sp.GetRequiredService<IOptions<MongoDBConnectionSetting>>().Value);
+            services.AddScoped<IReportRepository, ReportRepository>();
+            services.AddScoped<IReportService, ReportService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

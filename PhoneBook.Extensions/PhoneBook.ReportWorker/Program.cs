@@ -1,5 +1,10 @@
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
+using PhoneBook.Extensions.MongoDB;
+using PhoneBook.ReportCommon.Services;
+using PhoneBook.ReportWorker.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +23,9 @@ namespace PhoneBook.ReportWorker
             Host.CreateDefaultBuilder(args)
                 .ConfigureServices((hostContext, services) =>
                 {
+                    IConfiguration Configuration = hostContext.Configuration;
+                    ApiUrlModel apiUrlModel = Configuration.GetSection("ApiUrl").Get<ApiUrlModel>();
+                    services.AddSingleton(apiUrlModel);
                     services.AddHostedService<Worker>();
                 });
     }

@@ -2,18 +2,32 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace PhoneBook.ReportCommon.Services
 {
     public interface IReportService
     {
-        List<ReportModel> GetAll();
+        Task<List<ReportModel>> GetAll();
+        Task<List<ReportModel>> InsertReport(ReportModel request);
     }
     public class ReportService : IReportService
     {
-        public List<ReportModel> GetAll()
+        private readonly Extensions.MongoDB.MongoDBConnectionSetting _mongoDBConnectionSetting;
+        private readonly IReportRepository _reportRepository;
+        public ReportService(Extensions.MongoDB.MongoDBConnectionSetting mongoDBConnectionSetting,
+            IReportRepository reportRepository)
         {
-            throw new NotImplementedException();
+            _mongoDBConnectionSetting = mongoDBConnectionSetting;
+            _reportRepository = reportRepository;
+        }
+
+        public async Task<List<ReportModel>> GetAll() => await _reportRepository.GetListAsync();
+
+        public async Task<List<ReportModel>> InsertReport(ReportModel request)
+        {
+            await _reportRepository.InsertItemAsync(request);
+            return await _reportRepository.GetListAsync();
         }
     }
 }

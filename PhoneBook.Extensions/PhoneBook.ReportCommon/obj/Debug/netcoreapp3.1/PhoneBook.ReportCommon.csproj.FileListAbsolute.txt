@@ -1,0 +1,13 @@
+D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.ReportCommon\bin\Debug\netcoreapp3.1\PhoneBook.ReportCommon.deps.json
+D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.ReportCommon\bin\Debug\netcoreapp3.1\PhoneBook.ReportCommon.dll
+D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.ReportCommon\bin\Debug\netcoreapp3.1\PhoneBook.ReportCommon.pdb
+D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.ReportCommon\bin\Debug\netcoreapp3.1\PhoneBook.Extensions.dll
+D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.ReportCommon\bin\Debug\netcoreapp3.1\PhoneBook.Extensions.pdb
+D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.ReportCommon\obj\Debug\netcoreapp3.1\PhoneBook.ReportCommon.csproj.AssemblyReference.cache
+D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.ReportCommon\obj\Debug\netcoreapp3.1\PhoneBook.ReportCommon.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.ReportCommon\obj\Debug\netcoreapp3.1\PhoneBook.ReportCommon.AssemblyInfoInputs.cache
+D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.ReportCommon\obj\Debug\netcoreapp3.1\PhoneBook.ReportCommon.AssemblyInfo.cs
+D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.ReportCommon\obj\Debug\netcoreapp3.1\PhoneBook.ReportCommon.csproj.CoreCompileInputs.cache
+D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.ReportCommon\obj\Debug\netcoreapp3.1\PhoneBook.ReportCommon.csproj.CopyComplete
+D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.ReportCommon\obj\Debug\netcoreapp3.1\PhoneBook.ReportCommon.dll
+D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.ReportCommon\obj\Debug\netcoreapp3.1\PhoneBook.ReportCommon.pdb
