@@ -54,7 +54,7 @@ namespace PhoneBook.Extensions.MongoDB
                 throw ex;
             }
         }
-        
+
         public List<T> GetList() => collection.Find(x => true).ToList();
 
         public async Task<List<T>> GetListAsync() => await collection.Find(x => true).ToListAsync();
