@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using PhoneBook.ContactCommon.Models;
 using PhoneBook.ReportCommon.Models;
 using PhoneBook.ReportCommon.Services;
 using System;
@@ -21,18 +22,10 @@ namespace PhoneBook.Report.Controllers
         [HttpGet]
         public async Task<List<ReportModel>> Get() => await _reportService.GetAll();
 
-        [HttpGet("test")]
-        public async Task<List<ReportModel>> GetTest()
+        [HttpPost(template:"get-by-location")]
+        public async Task GetByLocation([FromBody]string location)
         {
-            await _reportService.InsertReport(new ReportModel
-            {
-                Durum = ReportType.Preparing,
-                RaporDetay = new ReportDetail { KisiSayisi = 2, Konum = "ankara", TelefonNumarasiSayisi = 5 },
-                TalepTarihi = System.DateTime.Now,
-                UUID = Guid.NewGuid().ToString()
-            });
-            var list = await _reportService.GetAll();
-            return list;
+            //TODO: create new rabbitmq pipe for this request
         }
     }
 }

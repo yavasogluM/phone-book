@@ -29,9 +29,12 @@ namespace PhoneBook.ReportWorker
             {
                 var extension = new Extensions.HttpExtension();
 
-                var result = extension.GetResponse(new Extensions.Models.HttpRequest<List<HttpResponseReportModel>> { RequestUrl = $"{_apiUrlModel.ReportServiceUrl}api/report", RequestType = Extensions.Models.HttpRequestType.GET });
+                var result = extension.GetResponse<List<HttpResponseReportModel>, object>(new Extensions.Models.HttpRequest<object> { RequestUrl = $"{_apiUrlModel.ReportServiceUrl}api/report", RequestType = Extensions.Models.HttpRequestType.GET });
 
                 _logger.LogInformation($"Tamamlanan: {result.ResponseObject.Count(x => x.Durum == ReportType.Completed)} - Devam Eden: {result.ResponseObject.Count(x => x.Durum == ReportType.Preparing)} ");
+
+                //TODO: added sending httprequest to contact service for get users with contact
+                //TODO: added rabbitmq sending pipe
 
                 await Task.Delay(1000, stoppingToken);
             }

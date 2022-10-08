@@ -1,0 +1,3 @@
+is_global = true
+build_property.RootNamespace = PhoneBook.ContactCommon
+build_property.ProjectDir = D:\Projects\PhoneBook\PhoneBook.Extensions\PhoneBook.ContactCommon\

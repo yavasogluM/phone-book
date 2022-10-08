@@ -4,6 +4,70 @@
     "D:\\Projects\\PhoneBook\\PhoneBook.Extensions\\PhoneBook.Report\\PhoneBook.Report.csproj": {}
   },
   "projects": {
+    "D:\\Projects\\PhoneBook\\PhoneBook.Extensions\\PhoneBook.ContactCommon\\PhoneBook.ContactCommon.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Projects\\PhoneBook\\PhoneBook.Extensions\\PhoneBook.ContactCommon\\PhoneBook.ContactCommon.csproj",
+        "projectName": "PhoneBook.ContactCommon",
+        "projectPath": "D:\\Projects\\PhoneBook\\PhoneBook.Extensions\\PhoneBook.ContactCommon\\PhoneBook.ContactCommon.csproj",
+        "packagesPath": "C:\\Users\\casper\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\PhoneBook\\PhoneBook.Extensions\\PhoneBook.ContactCommon\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\casper\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "D:\\Projects\\PhoneBook\\PhoneBook.Extensions\\PhoneBook.Extensions\\PhoneBook.Extensions.csproj": {
+                "projectPath": "D:\\Projects\\PhoneBook\\PhoneBook.Extensions\\PhoneBook.Extensions\\PhoneBook.Extensions.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.17.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "D:\\Projects\\PhoneBook\\PhoneBook.Extensions\\PhoneBook.Extensions\\PhoneBook.Extensions.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -156,6 +220,9 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
+              "D:\\Projects\\PhoneBook\\PhoneBook.Extensions\\PhoneBook.ContactCommon\\PhoneBook.ContactCommon.csproj": {
+                "projectPath": "D:\\Projects\\PhoneBook\\PhoneBook.Extensions\\PhoneBook.ContactCommon\\PhoneBook.ContactCommon.csproj"
+              },
               "D:\\Projects\\PhoneBook\\PhoneBook.Extensions\\PhoneBook.Extensions\\PhoneBook.Extensions.csproj": {
                 "projectPath": "D:\\Projects\\PhoneBook\\PhoneBook.Extensions\\PhoneBook.Extensions\\PhoneBook.Extensions.csproj"
               },
